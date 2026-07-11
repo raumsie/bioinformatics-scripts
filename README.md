@@ -16,27 +16,27 @@ Tested on Python 3.14.
 
 ## Scripts
 
-### `scripts/fasta_parser.py`
+### `fasta_parser.py`
 Parses a bacterial genome FASTA file with Biopython's `SeqIO` and computes nucleotide (A/C/G/T) composition. Plots the result as a bar chart.
 
-### `scripts/microRNA_detector.py`
+### `microRNA_detector.py`
 Trains a Random Forest and a Logistic Regression classifier to predict microRNA-target binding from human training data, then evaluates on human and mouse test data. Sequences are one-hot encoded (A/C/G/U) with length and GC-content features. 
 
-### `scripts/classifier.py`
+### `classifier.py`
 Logistic Regression classifier on the Iris dataset. 
 
-### `scripts/seq_backtracking.py`
+### `seq_backtracking.py`
 Global pairwise sequence alignment (Needleman-Wunsch) with a full dynamic programming scoring matrix and traceback to recover the optimal alignment. 
 
-### `scripts/random_algo.py`
+### `random_algo.py`
 Monte Carlo root-finding for a nonlinear equation. Not biology-specific, but the randomized-search approach is the same family of technique used in optimization for molecular structure and parameter estimation problems.
 
 ## Data
 
-- `data/Ecoli-bacteria-complete-genome-low-GC.fasta`, `data/thermophile-thermo-microbium-complete-genome-has-high-CGs.fasta` - bacterial genomes used by `fasta_parser.py`. Chosen as a contrasting pair: E. coli (low GC%) vs. a thermophile (high GC%).
-- `data/ecoli_percentages.png`, `data/microbium_percentages.png` - nucleotide composition charts produced by `fasta_parser.py` for each genome above.
-- `data/human_training_data.csv`, `data/human_test_data.csv`, `data/mouse_test_data.csv` - microRNA/target sequence pairs with binding labels, used by `microRNA_detector.py`.
-- `data/iris_training.csv`, `data/iris_test.csv` - the Iris flower dataset, used by `classifier.py`.
+- `Ecoli-bacteria-complete-genome-low-GC.fasta`, `thermophile-thermo-microbium-complete-genome-has-high-CGs.fasta` - bacterial genomes used by `fasta_parser.py`. Chosen as a contrasting pair: E. coli (low GC%) vs. a thermophile (high GC%).
+- `ecoli_percentages.png`, `microbium_percentages.png` - nucleotide composition charts produced by `fasta_parser.py` for each genome above.
+- `human_training_data.csv`, `human_test_data.csv`, `mouse_test_data.csv` - microRNA/target sequence pairs with binding labels, used by `microRNA_detector.py`.
+- `iris_training.csv`, `iris_test.csv` - the Iris flower dataset, used by `classifier.py`.
 
 ## License
 
