@@ -1,9 +1,14 @@
+from pathlib import Path
+
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression
+
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+
 # 1. Read training and test datasets
-train_df = pd.read_csv("iris_training.csv")
-test_df = pd.read_csv("iris_test.csv")
+train_df = pd.read_csv(DATA_DIR / "iris_training.csv")
+test_df = pd.read_csv(DATA_DIR / "iris_test.csv")
 
 #print(test_df)
 

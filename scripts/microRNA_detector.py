@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
@@ -7,23 +9,25 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.utils import class_weight
 from sklearn.feature_extraction.text import CountVectorizer
 
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+
 '''
 LogisticRegression just predicts 0 every time,
 so I found a different model (Random Forest)
 '''
 
 
-#training_data = pd.read_csv("human_training_data.csv", sep='\t', dtype={'a': bool, 'b': str, 'c': str})
+#training_data = pd.read_csv(DATA_DIR / "human_training_data.csv", sep='\t', dtype={'a': bool, 'b': str, 'c': str})
 
 # Header=None prevents first row from being treated as labels
-training_data = pd.read_fwf("human_training_data.csv", header=None)
+training_data = pd.read_fwf(DATA_DIR / "human_training_data.csv", header=None)
 if training_data.empty:
     print("Training data not found.")
 else:
     print("Training data loaded.")
 
-test_human = pd.read_fwf("human_test_data.csv", header=None)
-test_mouse = pd.read_fwf("mouse_test_data.csv", header=None)
+test_human = pd.read_fwf(DATA_DIR / "human_test_data.csv", header=None)
+test_mouse = pd.read_fwf(DATA_DIR / "mouse_test_data.csv", header=None)
 
 label_train = training_data.iloc[:, 0].tolist()
 #print(label_train)

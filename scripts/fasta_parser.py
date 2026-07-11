@@ -1,10 +1,14 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 from Bio import SeqIO
 
-#ecoli_file = "Ecoli-bacteria-complete-genome-low-GC.fasta"
-#microbe_file = "thermophile-thermo-microbium-complete-genome-has-high-CGs.fasta"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
-record = next(SeqIO.parse("Ecoli-bacteria-complete-genome-low-GC.fasta", "fasta"))
+#ecoli_file = DATA_DIR / "Ecoli-bacteria-complete-genome-low-GC.fasta"
+#microbe_file = DATA_DIR / "thermophile-thermo-microbium-complete-genome-has-high-CGs.fasta"
+
+record = next(SeqIO.parse(DATA_DIR / "Ecoli-bacteria-complete-genome-low-GC.fasta", "fasta"))
 sequence = str(record.seq).upper()
 
 # Calculate nucleotide percentages
@@ -35,5 +39,5 @@ ax.set_title('Letter Percentages', fontsize=14, pad=20)
 ax.grid(axis='y', alpha=0.3)
 
 
-#plt.savefig('microbium_percentages.png', dpi=300)
+#plt.savefig(DATA_DIR / 'microbium_percentages.png', dpi=300)
 plt.show()
