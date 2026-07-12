@@ -12,8 +12,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 '''
-LogisticRegression just predicts 0 every time,
-so I found a different model (Random Forest)
+LogisticRegression underperforms here even with class weighting
+(worse than always predicting 0), so Random Forest is used as
+the primary model.
 '''
 
 
